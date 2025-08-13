@@ -219,7 +219,7 @@ Gui.ZIndexBehavior = Enum.ZIndexBehavior.Sibling
 
 Main.Name = "Main"
 Main.Parent = Gui
-Main.BackgroundColor3 = Color3.fromRGB(75, 75, 75)
+Main.BackgroundColor3 = Color3.fromRGB(230, 230, 230)
 Main.BorderColor3 = Color3.fromRGB(0, 0, 0)
 Main.BorderSizePixel = 0
 Main.Position = UDim2.new(0.335954279, 0, 0.542361975, 0)
