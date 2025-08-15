@@ -4637,7 +4637,7 @@ local function lagarJogoLaptop(laptopPath, maxTeleports)
             game.Players.LocalPlayer.Character.HumanoidRootPart.CFrame = laptopPath.CFrame
             clickNormally(laptopPath)
             teleportCount = teleportCount + 1
-            wait(0.0001)
+            wait(0.000000001)
         end
     else
         warn("Laptop não encontrado.")
@@ -4654,7 +4654,7 @@ Tab:AddToggle({
             local laptopPath = workspace:FindFirstChild("WorkspaceCom"):FindFirstChild("001_GiveTools"):FindFirstChild("Laptop")
             if laptopPath then
                 spawn(function()
-                    lagarJogoLaptop(laptopPath, 999999999)
+                    lagarJogoLaptop(laptopPath, 999999999999999999999999999)
                 end)
             else
                 warn("Laptop não encontrado.")
@@ -4687,7 +4687,7 @@ local function lagarJogoPhone(phonePath, maxTeleports)
             game.Players.LocalPlayer.Character.HumanoidRootPart.CFrame = phonePath.CFrame
             clickNormally(phonePath)
             teleportCount = teleportCount + 1
-            wait(0.01)
+            wait(0.000001)
         end
     else
         warn("Telefone não encontrado.")
@@ -4704,7 +4704,7 @@ Tab:AddToggle({
             local phonePath = workspace:FindFirstChild("WorkspaceCom"):FindFirstChild("001_CommercialStores"):FindFirstChild("CommercialStorage1"):FindFirstChild("Store"):FindFirstChild("Tools"):FindFirstChild("Iphone")
             if phonePath then
                 spawn(function()
-                    lagarJogoPhone(phonePath, 999999)
+                    lagarJogoPhone(phonePath, 9999999999)
                 end)
             else
                 warn("Telefone não encontrado.")
@@ -4873,8 +4873,8 @@ local names = {
     {"TUBERS93", " TUBERS 93 "},
     {"CO0LKID", " CO0 LKID "},
     {"GAME ATTACKED BY MAFIA", " GAME ATTACKED BY MAFIA "},
-    {"INC0MUN", " INC0MUN"},
-    {"LINUX HUB USER", "LINUX HUB USER"}
+    {"⟦ ANT PATYS ⟧", "⟦ ANT PATYS ⟧"},
+    {"ＬＩＮＵＸ ＨＵＢ ＵＳＥＲ", "ＬＩＮＵＸ ＨＵＢ ＵＳＥＲ"}
 }
 
 for _, name in ipairs(names) do
