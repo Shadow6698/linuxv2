@@ -4,9 +4,9 @@ local Libary = loadstring(game:HttpGet("https://raw.githubusercontent.com/tbao14
 workspace.FallenPartsDestroyHeight = -math.huge
 
 local Window = Libary:MakeWindow({
-    Title = "Linux b | Brookhaven RP ",
+    Title = " Linux Hub | Brookhaven RP ",
     SubTitle = "by: Nightmare & henrique",
-    LoadText = "Carregando Chaos Hub",
+    LoadText = "Carregando Linux hub",
     Flags = "ChaosHub_Broookhaven"
 })
 Window:AddMinimizeButton({
@@ -19,9 +19,9 @@ local InfoTab = Window:MakeTab({ Title = "Info", Icon = "rbxassetid://1530913847
 
 
 InfoTab:AddSection({ "Informações do Script" })
-InfoTab:AddParagraph({ "Owner / Developer:", "Luscaa and veno." })
-InfoTab:AddParagraph({ "Colaborações:", "Blue, sukuna, Magekko, Darkness, Star, Toddy" })
-InfoTab:AddParagraph({ "Você está usando:", "Chaos Hub Brookhaven " })
+InfoTab:AddParagraph({ "Owner / Developer:", "Nightmare & Henrique" })
+InfoTab:AddParagraph({ "Colaborações:", "Nightmare & Henrique" })
+InfoTab:AddParagraph({ "Você está usando:", "Linux Hub Brookhaven " })
 InfoTab:AddParagraph({"Your executor:", executor})
 
 InfoTab:AddSection({ "Rejoin" })
