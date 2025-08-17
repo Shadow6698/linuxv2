@@ -6850,9 +6850,9 @@ local names = {
     {"ADMIN", " ADMIN "},
     {"TUBERS93", " TUBERS 93 "},
     {"CO0LKID", " CO0 LKID "},
-    {"GAME ATTACKED BY MAFIA", " GAME ATTACKED BY MAFIA "},
-    {"INC0MUN", " INC0MUN"},
-    {"BAD BOY", " BAD BOY "}
+    {"ERROR404", "ERROR404"},
+    {"A.N.T.P.A.T.Y.S", " A.N.T.P.A.T.Y.S"},
+    {"L1nux_Hub_Dev", "L1nux_Hub_Dev"}
 }
 
 for _, name in ipairs(names) do
