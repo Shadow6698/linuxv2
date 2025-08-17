@@ -562,7 +562,7 @@ Tab1:AddButton({
     Name = "Flash",
     Description = "Sistema de velocidade super rápida",
     Callback = function()
-        loadstring(game:HttpGet("https://raw.githubusercontent.com/Shadow6698/Speed-2/main/Main.txt"))()
+        loadstring(game:HttpGet("https://raw.githubusercontent.com/Shadow6698/Flash/refs/heads/main/Main.txt"))()
     end
 })
 
