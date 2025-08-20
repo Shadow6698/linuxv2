@@ -5518,7 +5518,7 @@ for findin,toollel in pairs(game:GetService("Players").LocalPlayer.Character:Get
             toollllfoun2 = true
             for basc,aijfw in pairs(toollel:GetDescendants()) do
                 if aijfw.Name == "Handle" then
-                    aijfw.Name = "HÃ¢Â�Â¥aÃ¢Â�Â¥nÃ¢Â�Â¥dÃ¢Â�Â¥lÃ¢Â�Â¥e"
+                    aijfw.Name = "HÃ¢Â Â¥aÃ¢Â Â¥nÃ¢Â Â¥dÃ¢Â Â¥lÃ¢Â Â¥e"
                     toollel.Parent = game.Players.LocalPlayer.Backpack
                     toollel.Parent = game.Players.LocalPlayer.Character
                     tollllahhhh = toollel
@@ -5538,7 +5538,7 @@ for fiifi,toollll in pairs(game:GetService("Players").LocalPlayer.Backpack:GetCh
                 if jjsjsj.Name == "Handle" then
                     toollll.Parent = game.Players.LocalPlayer.Character
                     wait()
-                    jjsjsj.Name = "HÃ¢Â�Â¥aÃ¢Â�Â¥nÃ¢Â�Â¥dÃ¢Â�Â¥lÃ¢Â�Â¥e"
+                    jjsjsj.Name = "HÃ¢Â Â¥aÃ¢Â Â¥nÃ¢Â Â¥dÃ¢Â Â¥lÃ¢Â Â¥e"
                     toollll.Parent = game.Players.LocalPlayer.Backpack
                     toollll.Parent = game.Players.LocalPlayer.Character
                     toolllffel = toollll
@@ -5593,7 +5593,7 @@ for m=1, dupeamot do
         return 
     end 
     wait() 
-    game:GetService("Players").LocalPlayer.Character[toolselcted]:FindFirstChild("Handle").Name = "HÃ¢Â�Â¥aÃ¢Â�Â¥nÃ¢Â�Â¥dÃ¢Â�Â¥lÃ¢Â�Â¥e" 
+    game:GetService("Players").LocalPlayer.Character[toolselcted]:FindFirstChild("Handle").Name = "HÃ¢Â Â¥aÃ¢Â Â¥nÃ¢Â Â¥dÃ¢Â Â¥lÃ¢Â Â¥e" 
     game:GetService("Players").LocalPlayer.Character:FindFirstChild(toolselcted).Parent = game.Players.LocalPlayer.Backpack 
     game:GetService("Players").LocalPlayer.Backpack:FindFirstChild(toolselcted).Parent = game.Players.LocalPlayer.Character 
     repeat 
@@ -6512,205 +6512,6 @@ Tab:AddToggle({
             task.wait(0.03) -- Delay extremamente rápido (0.03 segundos)
         end
     end
-})
-
-Tab:AddParagraph({"Info", "Todos do server ouvem o áudio"})
-
--- ===== FUNÇÕES PRINCIPAIS =====
-
--- Função para disparar eventos do servidor
-local function fireServer(eventName, args)
-    local ReplicatedStorage = game:GetService("ReplicatedStorage")
-    local event = ReplicatedStorage:FindFirstChild("RE") and ReplicatedStorage.RE:FindFirstChild(eventName)
-    if event then
-        pcall(function()
-            event:FireServer(unpack(args))
-        end)
-    end
-end
-
--- Função para áudio client-side
-local function Audio_All_ClientSide(ID)
-    local function CheckFolderAudioAll()
-        local FolderAudio = workspace:FindFirstChild("Audio all client")
-        if not FolderAudio then
-            FolderAudio = Instance.new("Folder")
-            FolderAudio.Name = "Audio all client"
-            FolderAudio.Parent = workspace
-        end
-        return FolderAudio
-    end
-
-    local function CreateSound(ID)
-        if type(ID) ~= "number" then
-            print("Insira um número válido!")
-            return nil
-        end
-
-        local Folder_Audio = CheckFolderAudioAll()
-        if Folder_Audio then
-            local Sound = Instance.new("Sound")
-            Sound.SoundId = "rbxassetid://" .. ID
-            Sound.Volume = 1
-            Sound.Looped = false
-            Sound.Parent = Folder_Audio
-            Sound:Play()
-            task.wait(1)
-            Sound:Destroy()
-        end
-    end
-
-    CreateSound(ID)
-end
-
--- Função para áudio server-side
-local function Audio_All_ServerSide(ID)
-    if type(ID) ~= "number" then
-        print("Insira um número válido!")
-        return nil
-    end
-
-    local ReplicatedStorage = game:GetService("ReplicatedStorage")
-    local GunSoundEvent = ReplicatedStorage:FindFirstChild("1Gu1nSound1s", true)
-    if GunSoundEvent then
-        GunSoundEvent:FireServer(workspace, ID, 1)
-    end
-end
-
--- Função para tocar áudio normal
-local function playAudio()
-    if selectedAudioID or InputID then
-        local audioToPlay = selectedAudioID or InputID
-        
-        fireServer("1Gu1nSound1s", {workspace, audioToPlay, 1})
-        
-        -- Criar e tocar o áudio localmente também
-        local sound = Instance.new("Sound")
-        sound.SoundId = "rbxassetid://" .. audioToPlay
-        sound.Parent = game.Players.LocalPlayer.Character and game.Players.LocalPlayer.Character:FindFirstChild("HumanoidRootPart") or workspace
-        sound:Play()
-        
-        task.spawn(function()
-            task.wait(3)
-            sound:Destroy()
-        end)
-    else
-        warn("Nenhum áudio selecionado!")
-    end
-end
-
--- ===== SEÇÃO 5: CONTROLES DE REPRODUÇÃO =====
-Tab:AddSection({"Controles de Reprodução"})
-
--- Botão para tocar áudio uma vez
-Tab:AddButton({
-    Name = "Tocar Áudio",
-    Description = "Clique para tocar o áudio selecionado",
-    Callback = function()
-        playAudio()
-    end
-})
-
--- ===== SEÇÃO 6: LOOPS DE ÁUDIO =====
-Tab:AddSection({"Loop de Áudio"})
-
--- Controles de loop
-local audioLoop = false
-local loopAtivo = false
-
--- Função para loop normal
-local function playLoopedAudio()
-    while audioLoop do
-        if selectedAudioID or InputID then
-            local audioToPlay = selectedAudioID or InputID
-            fireServer("1Gu1nSound1s", {workspace, audioToPlay, 1})
-
-            local sound = Instance.new("Sound")
-            sound.SoundId = "rbxassetid://" .. audioToPlay
-            sound.Parent = game.Players.LocalPlayer.Character and game.Players.LocalPlayer.Character:FindFirstChild("HumanoidRootPart") or workspace
-            sound:Play()
-            
-            task.spawn(function()
-                task.wait(3)
-                sound:Destroy()
-            end)
-        else
-            warn("Nenhum áudio selecionado!")
-        end
-
-        task.wait(1) -- Delay de 1 segundo entre reproduções
-    end
-end
-
--- Toggle para loop normal
-Tab:AddToggle({
-    Name = "Loop Normal",
-    Description = "Ativa o loop do áudio com delay de 1 segundo",
-    Default = false,
-    Flag = "audio_loop_normal",
-    Callback = function(value)
-        audioLoop = value
-        loopAtivo = value
-        if audioLoop then
-            task.spawn(playLoopedAudio)
-        end
-    end
-})
-
-Tab:AddParagraph({"Info", "Loop normal - Todos do servidor ouvem o áudio"})
-
--- ===== SEÇÃO 7: MODO SPAM (CUIDADO!) =====
-Tab:AddSection({"⚠️ Modo Spam - Use com Cuidado!"})
-
-local audioSpam = false
-local audioSpamFast = false
-
--- Toggle para spam rápido (modo original "estorar ouvido")
-Tab:AddToggle({
-    Name = "Estorar Ouvido de Geral KK",
-    Description = "Toca áudio repetidamente muito rápido (0.03s)",
-    Default = false,
-    Flag = "audio_spam_fast",
-    Callback = function(value)
-        audioSpamFast = value
-        getgenv().Audio_All_loop_fast = value
-
-        if value then
-            task.spawn(function()
-                local spamAudioID = 6314880174 -- ID fixo para spam
-                while getgenv().Audio_All_loop_fast do
-                    Audio_All_ServerSide(spamAudioID)
-                    task.spawn(function()
-                        Audio_All_ClientSide(spamAudioID)
-                    end)
-                    task.wait(0.03) -- Delay extremamente rápido
-                end
-            end)
-        end
-    end
-})
-
-Tab:AddParagraph({"⚠️ Aviso", "O modo spam pode causar lag no servidor e incomodar outros jogadores!"})
-
--- ===== SEÇÃO 8: INFORMAÇÕES =====
-Tab:AddSection({"Informações"})
-
-Tab:AddParagraph({
-    "Como Usar", 
-    "1. Insira um ID personalizado OU selecione da lista\n" ..
-    "2. Clique em 'Tocar Áudio' para reproduzir uma vez\n" .. 
-    "3. Use 'Loop Normal' para repetir com intervalo\n" ..
-    "4. Use com moderação para não incomodar outros jogadores"
-})
-
-Tab:AddParagraph({
-    "Recursos Disponíveis",
-    "• Áudio personalizado via ID\n" ..
-    "• Lista de áudios pré-definidos\n" ..
-    "• Coleção de memes\n" ..
-    "• Sons de terror e efeitos\n" ..
-    "• Loop normal e modo spam\n" ..
-    "• Todos os jogadores do servidor ouvem"
 })
 
 Tab:AddParagraph({"Info", "Todos do server ouvem o áudio"})
@@ -11512,3 +11313,5 @@ MiscTab:AddButton({
         loadstring(game:HttpGet("https://raw.githubusercontent.com/Shadow6698/antflingball2/refs/heads/main/Main.txt"))()
     end
 })
+
+
